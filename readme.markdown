@@ -2,6 +2,10 @@
 
 > User-friendly virtual DOM diffing
 
+# Demo
+
+[![][4]][5]
+
 # Install
 
 ```shell
@@ -31,3 +35,5 @@ MIT
 [1]: https://github.com/Matt-Esch/virtual-dom
 [2]: https://github.com/tbranyen/diffhtml
 [3]: https://github.com/tbranyen
+[4]: https://github.com/bevacqua/diferente/blob/master/resources/demo.png
+[5]: http://bevacqua.github.io/diferente/
