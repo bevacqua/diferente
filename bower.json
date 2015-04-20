@@ -1,0 +1,12 @@
+{
+  "name": "diferente.js",
+  "version": "1.0.0",
+  "description": "User-friendly virtual DOM diffing",
+  "main": "dist/diferente.js",
+  "ignore": [],
+  "homepage": "https://github.com/bevacqua/diferente",
+  "authors": [
+    "Nicolas Bevacqua <nicolasbevacqua@gmail.com>"
+  ],
+  "license": "MIT"
+}

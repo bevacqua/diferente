@@ -1,0 +1,40 @@
+<!doctype html>
+<link href='example/example.css' rel='stylesheet' type='text/css' />
+<title>diferente</title>
+<h1>diferente</h1>
+<h3>User-friendly virtual DOM diffing</h3>
+<a href='https://github.com/bevacqua/diferente'>
+  <img class='gh-fork' src='https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67' alt='Fork me on GitHub' data-canonical-src='https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png' />
+</a>
+<div class='examples'>
+  <div class='parent'>
+    <label for='hy'>Open up the console and you'll notice only the text node is getting updated.</label>
+    <div class='clock'></div>
+    <div class='component'></div>
+    <pre>
+      <code>
+<div class='clock'></div>
+<div class='component'></div>
+
+<script src='dist/diferente.js'></script>
+<script>
+  var clock = document.querySelector('.clock');
+  var component = document.querySelector('.component');
+  var webComponentElement = document.createElement('web-component');
+
+  setInterval(function render () {
+    // typical usage
+    diferente(clock, '<span>' + new Date().toLocaleString() + '</span>');
+
+    // update an element and then render that element directly
+    webComponentElement.innerText = new Date().toLocaleString();
+    diferente(component, webComponentElement.outerHTML);
+  }, 1000);
+</script>
+      </code>
+    </pre>
+  </div>
+</div>
+<h3>Get it on GitHub! <a href='https://github.com/bevacqua/diferente'>bevacqua/diferente</a></h3>
+<script src='dist/diferente.js'></script>
+<script src='example/example.js'></script>
