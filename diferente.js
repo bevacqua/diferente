@@ -39,33 +39,41 @@ function htmlIntoHScript (markup) {
 }
 
 function diferente (el, html) {
-  var diff = el.__diff || {};
+  if (!el.__diff) { el.__diff = {}; }
+
+  var diff = el.__diff;
   var oldHTML = el.innerHTML;
   var newH = htmlIntoHScript(html.outerHTML || html);
   var newRender = new Function('h', 'return ' + newH);
 
-  if (!diff.tree) {
-    var oldH = htmlIntoHScript(oldHTML);
-    var oldRender = new Function('h', 'return ' + (oldH || 'null'));
-
-    diff.tree = oldRender(vdom.h);
-    diff.branch = vdom.create(diff.tree);
-
-    if (!diff.branch) {
-      diff.tree = newRender(vdom.h);
-      diff.branch = vdom.create(diff.tree);
-    }
-
-    el.innerHTML = '';
-    el.appendChild(diff.branch);
-  }
+  initialize();
 
   var newTree = newRender(vdom.h);
   var patches = vdom.diff(diff.tree, newTree);
 
-  el.__diff = diff;
-
+  diff.tree = newTree;
   vdom.patch(diff.branch, patches);
+
+  function initialize () {
+      if (!diff.tree) {
+      var oldH = htmlIntoHScript(oldHTML);
+      var oldRender = new Function('h', 'return ' + (oldH || 'null'));
+
+      render(oldRender);
+
+      if (!diff.branch) {
+        render(newRender);
+      }
+
+      el.innerHTML = '';
+      el.appendChild(diff.branch);
+    }
+  }
+
+  function render (fn) {
+    diff.tree = fn(vdom.h);
+    diff.branch = vdom.create(diff.tree);
+  }
 }
 
 module.exports = diferente;
