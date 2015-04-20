@@ -4,7 +4,7 @@
 
 # Demo
 
-[![][4]][5]
+[![Demo screenshot][4]][5]
 
 # Install
 
@@ -26,7 +26,7 @@ diferente(el, '<new markup to diff/>');
 
 # Origins
 
-The original `diffhtml` algorithm was designed and developed by [tbranyen][3]. I wanted something that didn't pollute the environment _(his code assigned to `Element.prototype.diffHTML`)_, and so this module came into existance.
+The [diffhtml][2] algorithm was invented by [tbranyen][3]. I wanted something that didn't pollute the environment _(his code assigned to `Element.prototype.diffHTML`)_, so I took the code he wrote and just exposed the function that was called when assigning to `diffHTML`. All credit goes [to him][3].
 
 # License
 
