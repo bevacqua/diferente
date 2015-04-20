@@ -16,7 +16,7 @@ npm install diferente --save
 bower install diferente --save
 ```
 
-# `diferent(el, markup)`
+# `diferente(el, markup)`
 
 In contrast with `el.innerHTML = markup`, which **wipes out the DOM** when set, `diferente` allows you to easily swap out markup with an intelligent [virtual-dom][1] changeset diff patch.
 
